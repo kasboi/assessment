@@ -14,7 +14,14 @@ import ToggleButton from "../components/ToggleButton"
 import img from "../assets/react.svg"
 import Dropdown from "../components/Dropdown"
 
-export function Contacts({ contacts, page, setPage, filter, setFilter,setUser }) {
+export function Contacts({
+    contacts,
+    page,
+    setPage,
+    filter,
+    setFilter,
+    setUser,
+}) {
     const [searchVal, setSearchVal] = useState("")
     const [selectedOption, setSelectedOption] = useState("Country")
 
@@ -44,6 +51,17 @@ export function Contacts({ contacts, page, setPage, filter, setFilter,setUser })
             setSelectedOption("Country")
             setUser("")
         }
+    }
+
+    const downloadResults = () => {
+        fetch("https://randomuser.me/api/?format=csv")
+            .then((response) => response.blob())
+            .then((blob) => {
+                // Create blob link to download automatically
+                const url = window.URL.createObjectURL(new Blob([blob]))
+                const link = document.createElement("a")
+                // Set link's href to point to the Blob
+            })
     }
 
     if (contacts.length === 0) {
@@ -153,9 +171,14 @@ export function Contacts({ contacts, page, setPage, filter, setFilter,setUser })
                           })}
                 </div>
                 <div className="my-6 flex justify-center">
-                    <button className="flex items-center bg-purple-700 px-5 py-3.5 rounded-full text-white font-medium transition-colors hover:bg-purple-800 shadow-lg">
+                    <button
+                        className="flex items-center bg-purple-700 px-5 py-3.5 rounded-full text-white font-medium transition-colors hover:bg-purple-800 shadow-lg"
+                        // onClick={() => downloadResults()}
+                    >
                         <CloudArrowDownIcon className="h-8 w-8 text-white mr-3" />
-                        Download Results
+                        <a href="https://randomuser.me/api/?format=csv">
+                            Download Results
+                        </a>
                     </button>
                 </div>
                 <div className="text-white flex gap-6 my-6 justify-end">
