@@ -171,15 +171,15 @@ export function Contacts({
                           })}
                 </div>
                 <div className="my-6 flex justify-center">
-                    <button
-                        className="flex items-center bg-purple-700 px-5 py-3.5 rounded-full text-white font-medium transition-colors hover:bg-purple-800 shadow-lg"
-                        // onClick={() => downloadResults()}
-                    >
-                        <CloudArrowDownIcon className="h-8 w-8 text-white mr-3" />
-                        <a href="https://randomuser.me/api/?format=csv">
+                    <a href="https://randomuser.me/api/?format=csv&results=20">
+                        <button
+                            className="flex items-center bg-purple-700 px-5 py-3.5 rounded-full text-white font-medium transition-colors hover:bg-purple-800 shadow-lg"
+                            // onClick={() => downloadResults()}
+                        >
+                            <CloudArrowDownIcon className="h-8 w-8 text-white mr-3" />
                             Download Results
-                        </a>
-                    </button>
+                        </button>
+                    </a>
                 </div>
                 <div className="text-white flex gap-6 my-6 justify-end">
                     <button
