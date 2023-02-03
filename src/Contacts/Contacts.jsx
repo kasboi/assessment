@@ -14,7 +14,7 @@ import ToggleButton from "../components/ToggleButton"
 import img from "../assets/react.svg"
 import Dropdown from "../components/Dropdown"
 
-export function Contacts({ contacts, page, setPage, filter, setFilter }) {
+export function Contacts({ contacts, page, setPage, filter, setFilter,setUser }) {
     const [searchVal, setSearchVal] = useState("")
     const [selectedOption, setSelectedOption] = useState("Country")
 
@@ -37,10 +37,12 @@ export function Contacts({ contacts, page, setPage, filter, setFilter }) {
             setPage(page + 1)
             setFilter([])
             setSelectedOption("Country")
+            setUser("")
         } else if (set === "prev" && page > 1) {
             setPage(page - 1)
             setFilter([])
             setSelectedOption("Country")
+            setUser("")
         }
     }
 

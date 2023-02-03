@@ -44,6 +44,7 @@ function App() {
                 setPage={setPage}
                 filter={filter}
                 setFilter={setFilter}
+                setUser={setUser}
             />
         </div>
     )
