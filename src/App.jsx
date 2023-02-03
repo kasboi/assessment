@@ -12,12 +12,14 @@ function App() {
     const [user, setUser] = useState("")
 
     useEffect(() => {
-        fetch(`https://randomuser.me/api/?page=${page}&results=3&seed=abc`)
-            .then((response) => response.json())
-            .then((data) => {
-                setContacts(data.results)
-            })
-    }, [page])
+        if (user.length === 0) {
+            fetch(`https://randomuser.me/api/?page=${page}&results=3&seed=abc`)
+                .then((response) => response.json())
+                .then((data) => {
+                    setContacts(data.results)
+                })
+        }
+    }, [page, user])
 
     useEffect(() => {
         if (user.length > 0) {
@@ -31,7 +33,11 @@ function App() {
 
     return (
         <div className="bg-slate-700 h-[100vh] py-4">
-            <Search contacts={contacts} setFilter={setFilter} setUser={setUser}/>
+            <Search
+                contacts={contacts}
+                setFilter={setFilter}
+                setUser={setUser}
+            />
             <Contacts
                 contacts={contacts}
                 page={page}

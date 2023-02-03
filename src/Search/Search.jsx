@@ -7,7 +7,7 @@ export function Search({ contacts, setFilter, setUser }) {
 
     const handleFilter = (e) => {
         const val = e.target.value
-        console.log(val);
+        console.log(val)
         setSearchVal(val)
         const filtered = contacts.filter((contact) => {
             let name = contact.name.first + " " + contact.name.last
@@ -15,10 +15,10 @@ export function Search({ contacts, setFilter, setUser }) {
             console.log(name)
             return name.includes(val)
         })
-        console.log(filtered);
+        console.log(filtered)
         setFilter(filtered)
     }
-    
+
     return (
         <div className="px-8 py-8">
             <div className="text-5xl mb-6">
@@ -50,7 +50,10 @@ export function Search({ contacts, setFilter, setUser }) {
                 <h2 className="text-xl text-white">Show Users</h2>
                 <div className="my-4 flex justify-between max-w-md mx-auto">
                     <div>
-                        <button className="transition bg-pink-500 rounded-3xl py-10 px-12 shadow-2xl hover:bg-pink-700 mb-2">
+                        <button
+                            className="transition bg-pink-500 rounded-3xl py-10 px-12 shadow-2xl hover:bg-pink-700 mb-2"
+                            onClick={() => setUser("")}
+                        >
                             <UsersIcon className="h-7 w-7 text-white" />
                         </button>
                         <p className="text-center text-slate-300 font-thin">
@@ -58,7 +61,10 @@ export function Search({ contacts, setFilter, setUser }) {
                         </p>
                     </div>
                     <div>
-                        <button className="transition bg-teal-500 rounded-3xl py-10 px-12 shadow-2xl hover:bg-teal-700 mb-2">
+                        <button
+                            className="transition bg-teal-500 rounded-3xl py-10 px-12 shadow-2xl hover:bg-teal-700 mb-2"
+                            onClick={() => setUser("male")}
+                        >
                             <UsersIcon className="h-7 w-7 text-white" />
                         </button>
                         <p className="text-center text-slate-300 font-thin">
@@ -66,7 +72,10 @@ export function Search({ contacts, setFilter, setUser }) {
                         </p>
                     </div>
                     <div>
-                        <button className="transition bg-purple-500 rounded-3xl py-10 px-12 shadow-2xl hover:bg-purple-700 mb-2">
+                        <button
+                            className="transition bg-purple-500 rounded-3xl py-10 px-12 shadow-2xl hover:bg-purple-700 mb-2"
+                            onClick={() => setUser("female")}
+                        >
                             <UsersIcon className="h-7 w-7 text-white" />
                         </button>
                         <p className="text-center text-slate-300 font-thin">
